@@ -2,23 +2,25 @@ class BankAccount
 
   attr_reader :balance, :transaction_history
 
+
   def initialize
     @balance = 0
     @transaction_history = []
+    @date = Time.now.strftime('%d/%m/%Y')
   end
 
   def print_statement
     "date || credit || debit || balance"
   end
 
-  def deposit(amount, date)
+  def deposit(amount)
     @balance += amount
-    @transaction_history << {date: date, credit: amount, debit: "" , balance: @balance }
+    @transaction_history << {date: @date, credit: amount, debit: "" , balance: @balance }
   end
 
-  def withdraw(amount, date)
+  def withdraw(amount)
     @balance -= amount
-    @transaction_history << {date: date, credit: "", debit: amount , balance: @balance }
+    @transaction_history << {date: @date, credit: "", debit: amount , balance: @balance }
   end
 
 
