@@ -20,7 +20,7 @@ describe 'Bank Account' do
       expect{ account.deposit(100, date) }.to change{ account.balance }.by(100)
     end
 
-    it "should add the current transaction to the transaction history" do
+    it "should add the deposit transaction to the transaction history" do
       transaction = account.deposit(100, date)
       expect(account.transaction_history).to match(transaction)
     end
@@ -31,6 +31,11 @@ describe 'Bank Account' do
 
     it 'should decrease the balance by withdrawal amount' do
       expect{ account.withdraw(100, date) }.to change{ account.balance }.by(-100)
+    end
+
+    it "should add the withdraw transaction to the transaction history" do
+      transaction = account.withdraw(100, date)
+      expect(account.transaction_history).to match(transaction)
     end
 
   end

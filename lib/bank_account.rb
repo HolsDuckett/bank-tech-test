@@ -13,11 +13,12 @@ class BankAccount
 
   def deposit(amount, date)
     @balance += amount
-    @transaction_history << {date: date, debit: amount}
+    @transaction_history << {date: date, credit: amount, debit: "" , balance: @balance }
   end
 
   def withdraw(amount, date)
     @balance -= amount
+    @transaction_history << {date: date, credit: "", debit: amount , balance: @balance }
   end
 
 
