@@ -1,11 +1,10 @@
 require 'bank_account'
-require 'Date'
 
 describe 'Bank Account' do
 
   let (:account) {BankAccount.new}
   let (:statement_header) { "date || credit || debit || balance" }
-  let (:todays_date) {Date.today}
+  let (:date) {"08/03/2021"}
 
   describe '#print_statament' do
 
@@ -18,9 +17,13 @@ describe 'Bank Account' do
   describe '#deposit' do
 
     it "should increase balance by desposit amount" do
-      expect{ account.deposit(100) }.to change{ account.balance }.by(100)
+      expect{ account.deposit(100, date) }.to change{ account.balance }.by(100)
     end
-    
+
+    it "should add the current transaction to the transaction history" do
+      transaction = account.deposit(100, date)
+      expect(account.transaction_history).to match(transaction)
+    end
 
   end
 
