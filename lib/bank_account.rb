@@ -1,6 +1,6 @@
-class BankStatement
+class BankAccount
 
-  def print
+  def print_statement
     "date || credit || debit || balance"
   end
 
