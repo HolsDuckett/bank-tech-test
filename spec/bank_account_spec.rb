@@ -27,5 +27,13 @@ describe 'Bank Account' do
 
   end
 
+  describe '#withdraw' do
+
+    it 'should decrease the balance by withdrawal amount' do
+      expect{ account.withdraw(100, date) }.to change{ account.balance }.by(-100)
+    end
+
+  end
+
 
 end

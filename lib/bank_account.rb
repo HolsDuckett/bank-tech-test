@@ -16,5 +16,9 @@ class BankAccount
     @transaction_history << {date: date, debit: amount}
   end
 
+  def withdraw(amount, date)
+    @balance -= amount
+  end
+
 
 end
