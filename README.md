@@ -40,3 +40,6 @@ I want to be able to view the date and amount of a deposit on my bank statement
 
 # Approach
 * See approach.md
+
+#Domain Modelling
+* See domain_modelling.md
