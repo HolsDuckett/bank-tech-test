@@ -9,14 +9,13 @@ describe 'Bank Account' do
   describe '#print_statament' do
 
     it 'should print out a customers bank statement with a header' do
-      expect(account.print_statement).to eq(statement_header)
+      expect(account.print_statement).to include(statement_header)
     end
 
-    # it 'should print out a customers transaction history' do
-    #   transaction = {date: , credit: amount, debit: "" , balance: @balance }
-    #   expect(account.print_statament).to ouput(transaction)
-    # end
-
+    it 'should print out a customers transaction history' do
+      account.deposit(100)
+      expect(account.print_statement).to include("#{date} || 100 ||  || 100")
+    end
 
   end
 
