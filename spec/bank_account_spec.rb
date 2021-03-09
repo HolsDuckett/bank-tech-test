@@ -3,18 +3,15 @@ require 'bank_account'
 describe 'Bank Account' do
 
   let (:account) {BankAccount.new}
-  let (:statement_header) { "date || credit || debit || balance" }
+  let (:statement_header) { "date || credit || debit || balance\n" }
   let (:date) {Time.now.strftime('%d/%m/%Y')}
+  let (:transaction) {"#{date} || 100.00 ||  || 100.00\n"}
 
   describe '#print_statament' do
 
-    it 'should print out a customers bank statement with a header' do
-      expect(account.print_statement).to include(statement_header)
-    end
-
-    it 'should print out a customers transaction history' do
+    it 'should print out a customers transaction history including date, amount and balance at the time' do
       account.deposit(100)
-      expect(account.print_statement).to include("#{date} || 100 ||  || 100")
+      expect{account.print_statement}.to output(statement_header + transaction).to_stdout
     end
 
   end
