@@ -20,8 +20,12 @@ class BankAccount
   end
 
   def print_statement
-    puts HEADER
-    puts transactions_to_array_of_strings.join("\n")
+    if @transaction_history.length == 0
+      return "No transactions made"
+    else
+      puts HEADER
+      puts transactions_to_array_of_strings.join("\n")
+    end
   end
 
 
