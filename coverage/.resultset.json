@@ -10,7 +10,7 @@
           1,
           9,
           2,
-          2,
+          4,
           2,
           2,
           2,
@@ -120,13 +120,12 @@
           0,
           null,
           null,
-          null,
-          null,
           null
         ]
       },
       "/Users/Student/Dropbox/My Mac (MA168)/Documents/Projects/Makers/tech-tests/Bank-tech-test/spec/statement_spec.rb": {
         "lines": [
+          null,
           null,
           null,
           null,
@@ -165,6 +164,6 @@
         ]
       }
     },
-    "timestamp": 1615320973
+    "timestamp": 1615369086
   }
 }

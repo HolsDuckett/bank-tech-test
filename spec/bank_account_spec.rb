@@ -7,8 +7,8 @@ describe 'Bank Account' do
   let(:statement_header) { "date || credit || debit || balance\n" }
   let(:date) { Time.now.strftime('%d/%m/%Y') }
   let(:transaction) { "#{date} || 100.00 ||  || 100.00\n" }
-  let(:deposit) { { amount: 100, balance_at_time: 100, date: '09/03/2021' } }
-  let(:withdraw) { { amount: -100, balance_at_time: 0, date: '09/03/2021' } }
+  let(:deposit) { { amount: 100, balance_at_time: 100, date: "#{date}" } }
+  let(:withdraw) { { amount: -100, balance_at_time: 0, date: "#{date}" } }
 
   describe '#print_statament' do
     it 'should print out a customers transaction history including date, amount and balance at the time' do
