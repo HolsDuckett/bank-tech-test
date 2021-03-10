@@ -5,8 +5,15 @@
 * Account statement (date, amount, balance) printing.
 * Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
+# Project Set Up
 
-# User Stories
+* Clone this repo
+* Run `bundle install`
+* Run on IRB using `irb -r "./lib/bank_account"`
+
+# Planning
+
+* Acceptance Criteria broken into user stories
 
 ###
 As a bank customer
@@ -38,8 +45,31 @@ So that i can see my how much and when I have deposited money
 I want to be able to view the date and amount of a deposit on my bank statement
 ###
 
-# Approach
-* See approach.md
+* User stories used to create a class diagram
 
-#Domain Modelling
-* See domain_modelling.md
+![](assets/domain_modelling-f5d21af9.png)
+![](assets/domain_modelling-a10d6e87.png)
+![](assets/domain_modelling-6c982c87.png)
+
+# Screenshot of code working in IRB
+
+![](assets/README-c57d87be.png)
+
+###
+
+# Next Steps
+* Class Extractions - my next step would be to extract bank_account.rb in to the following classes:
+ - statement: This class would handle the rendering of the bank transactions into a printable statement. it would require the instance variable transactions_history passed as an argument to be rendered
+ - transactions: This class would handle the transaction methods (deposit and withdraw) and their affect on the    balance, adding their transactions to a transaction history.
+
+# Edge Cases
+ACCOUNTED FOR:
+* User cannot withdraw more than the current balance, if so a message warns them of insufficient funds.
+* User can not print a statement if no transactions have been made.
+* A bank account is always initialized with a balance of 0.
+
+TO ADD:
+* Throw an error when no amount is added to a withdraw or deposit transaction
+* Throw an error when a negative number chose as an amount for the deposit transaction
+* Add an overdraft - where a customer is allowed to withdraw more than the balance
+*

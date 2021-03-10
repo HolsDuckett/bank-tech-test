@@ -17,7 +17,7 @@ class BankAccount
 
   def withdraw(amount, date = Time.now.strftime('%d/%m/%Y'))
     if @balance < amount
-      return 'Insufficient funds - you gotta grind girl.'
+      'Insufficient funds - you gotta grind girl.'
     else
       @balance -= amount
       @transaction_history << { date: date, amount: -amount, balance_at_time: @balance }
@@ -25,8 +25,8 @@ class BankAccount
   end
 
   def print_statement
-    if @transaction_history.length == 0
-      return 'You havent done anything girl, theres nothing to see here.'
+    if @transaction_history.length.zero?
+      'You havent done anything girl, theres nothing to see here.'
     else
       puts HEADER
       puts transactions_to_array_of_strings.join("\n")
@@ -54,6 +54,4 @@ class BankAccount
       "#{date} ||  || #{'%.2f' % -amount} || #{'%.2f' % balance_at_time}"
     end
   end
-
-
 end

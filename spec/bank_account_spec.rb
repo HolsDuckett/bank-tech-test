@@ -7,8 +7,8 @@ describe 'Bank Account' do
   let(:statement_header) { "date || credit || debit || balance\n" }
   let(:date) { Time.now.strftime('%d/%m/%Y') }
   let(:transaction) { "#{date} || 100.00 ||  || 100.00\n" }
-  let(:deposit) { {:amount=>100, :balance_at_time=>100, :date=>"09/03/2021"} }
-  let(:withdraw) { {:amount=>-100, :balance_at_time=>0, :date=>"09/03/2021"} }
+  let(:deposit) { { amount: 100, balance_at_time: 100, date: '09/03/2021' } }
+  let(:withdraw) { { amount: -100, balance_at_time: 0, date: '09/03/2021' } }
 
   describe '#print_statament' do
     it 'should print out a customers transaction history including date, amount and balance at the time' do
@@ -45,7 +45,7 @@ describe 'Bank Account' do
     end
 
     it 'should raise error if you have insufficient funds' do
-      expect(account.withdraw(10)).to eq("Insufficient funds - you gotta grind girl.")
+      expect(account.withdraw(10)).to eq('Insufficient funds - you gotta grind girl.')
     end
   end
 
