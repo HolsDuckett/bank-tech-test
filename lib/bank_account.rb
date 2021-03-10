@@ -36,20 +36,20 @@ class BankAccount
   def transactions_to_array_of_strings
     transaction_list = []
 
-    @transaction_history.reverse.each do |trans|
-      transaction_list << render_transactions(trans)
+    @transaction_history.reverse.each do |transaction|
+      transaction_list << render_transactions(transaction)
     end
 
     transaction_list
   end
 
-  def render_transactions(trans)
-    date = trans[:date]
-    amount = trans[:amount]
-    balance_at_time = trans[:balance_at_time]
+  def render_transactions(transaction)
+    date = transaction[:date]
+    amount = transaction[:amount]
+    balance_at_time = transaction[:balance_at_time]
 
     if amount.positive?
-      "#{date} || #{'%.2f' % amount} ||  || #{'%.2f' % balance_at_time}"
+      "#{date} || #{'%.2f'% amount} ||  || #{'%.2f' % balance_at_time}"
     else
       "#{date} ||  || #{'%.2f' % -amount} || #{'%.2f' % balance_at_time}"
     end

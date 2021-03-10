@@ -10,6 +10,8 @@
 * Clone this repo
 * Run `bundle install`
 * Run on IRB using `irb -r "./lib/bank_account"`
+* Run `rspec` to run unit tests
+* Run `rubocop` for linter check
 
 # Planning
 

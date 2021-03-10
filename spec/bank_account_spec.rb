@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 require 'bank_account'
 
 describe 'Bank Account' do
@@ -7,8 +6,8 @@ describe 'Bank Account' do
   let(:statement_header) { "date || credit || debit || balance\n" }
   let(:date) { Time.now.strftime('%d/%m/%Y') }
   let(:transaction) { "#{date} || 100.00 ||  || 100.00\n" }
-  let(:deposit) { { amount: 100, balance_at_time: 100, date: "#{date}" } }
-  let(:withdraw) { { amount: -100, balance_at_time: 0, date: "#{date}" } }
+  let(:deposit) { { amount: 100, balance_at_time: 100, date: date.to_s } }
+  let(:withdraw) { { amount: -100, balance_at_time: 0, date: date.to_s } }
 
   describe '#print_statament' do
     it 'should print out a customers transaction history including date, amount and balance at the time' do
@@ -54,4 +53,5 @@ describe 'Bank Account' do
       expect(account.balance).to eq(0)
     end
   end
+  
 end
