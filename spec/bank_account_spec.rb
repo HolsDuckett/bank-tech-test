@@ -8,11 +8,19 @@ describe 'Bank Account' do
   let(:transaction) { "#{date} || 100.00 ||  || 100.00\n" }
   let(:deposit) { { amount: 100, balance_at_time: 100, date: date.to_s } }
   let(:withdraw) { { amount: -100, balance_at_time: 0, date: date.to_s } }
+  let(:transaction2) { "#{date} ||  || 50.00 || 50.00\n#{date} || 100.00 ||  || 100.00\n" }
+
 
   describe '#print_statament' do
     it 'should print out a customers transaction history including date, amount and balance at the time' do
       account.deposit(100)
       expect { account.print_statement }.to output(statement_header + transaction).to_stdout
+    end
+
+    it 'should print out a customers transaction history including date, amount and balance at the time with both a deposit and withdrawl' do
+      account.deposit(100)
+      account.withdraw(50)
+      expect { account.print_statement }.to output(statement_header + transaction2).to_stdout
     end
 
     it 'should raise error if no transactions have been made and user tries to print statment' do
@@ -53,5 +61,5 @@ describe 'Bank Account' do
       expect(account.balance).to eq(0)
     end
   end
-  
+
 end

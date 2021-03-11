@@ -33,6 +33,8 @@ class BankAccount
     end
   end
 
+  private # ---------------------------------------------------
+
   def transactions_to_array_of_strings
     transaction_list = []
 
