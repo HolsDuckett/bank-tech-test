@@ -14,6 +14,7 @@ class BankAccount
   def deposit(amount)
     @balance += amount
     @transaction_history << { date: date, amount: amount, balance_at_time: @balance }
+  #  return "You have just deposited £#{amount}.00 into your bank account."
   end
 
   def withdraw(amount)
@@ -22,6 +23,7 @@ class BankAccount
     else
       @balance -= amount
       @transaction_history << { date: date, amount: -amount, balance_at_time: @balance }
+    #  return "You have just withdrawn £#{amount}.00 from your bank account."
     end
   end
 
@@ -35,7 +37,7 @@ class BankAccount
   end
 
   def date
-    Date.today
+    Date.today.strftime("%d/%m/%Y")
   end
 
 end

@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-03-12T16:00:42+00:00">2021-03-12T16:00:42+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-03-12T16:46:00+00:00">2021-03-12T16:46:00+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -73,7 +73,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#223525ae281386a03b15035efadd2957ab390b7a" class="src_link" title="lib/bank_account.rb">lib/bank_account.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">41</td>
+            <td class="cell--number">43</td>
             <td class="cell--number">23</td>
             <td class="cell--number">23</td>
             <td class="cell--number">0</td>
@@ -351,7 +351,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">  #  return &quot;You have just deposited £#{amount}.00 into your bank account.&quot;</code>
           </li>
         </div>
       
@@ -362,12 +362,23 @@
 
             
 
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="19">
+            
+            
+
+            
+
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="19">
+          <li class="covered" data-hits="1" data-linenumber="20">
             <span class="hits">1</span>
             
 
@@ -378,7 +389,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="4" data-linenumber="20">
+          <li class="covered" data-hits="4" data-linenumber="21">
             <span class="hits">4</span>
             
 
@@ -389,7 +400,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="21">
+          <li class="covered" data-hits="1" data-linenumber="22">
             <span class="hits">1</span>
             
 
@@ -400,24 +411,13 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="22">
+          <li class="never" data-hits="" data-linenumber="23">
             
             
 
             
 
             <code class="ruby">    else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="23">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">      @balance -= amount</code>
           </li>
         </div>
       
@@ -428,18 +428,18 @@
 
             
 
-            <code class="ruby">      @transaction_history &lt;&lt; { date: date, amount: -amount, balance_at_time: @balance }</code>
+            <code class="ruby">      @balance -= amount</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="25">
-            
-            
-
+          <li class="covered" data-hits="3" data-linenumber="25">
+            <span class="hits">3</span>
             
 
-            <code class="ruby">    end</code>
+            
+
+            <code class="ruby">      @transaction_history &lt;&lt; { date: date, amount: -amount, balance_at_time: @balance }</code>
           </li>
         </div>
       
@@ -450,7 +450,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    #  return &quot;You have just withdrawn £#{amount}.00 from your bank account.&quot;</code>
           </li>
         </div>
       
@@ -461,29 +461,29 @@
 
             
 
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="29">
+            
+            
+
+            
+
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="28">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def print_statement</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="3" data-linenumber="29">
-            <span class="hits">3</span>
-            
-
-            
-
-            <code class="ruby">    if transaction_history.length.zero?</code>
           </li>
         </div>
       
@@ -494,12 +494,34 @@
 
             
 
+            <code class="ruby">  def print_statement</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="3" data-linenumber="31">
+            <span class="hits">3</span>
+            
+
+            
+
+            <code class="ruby">    if transaction_history.length.zero?</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="32">
+            <span class="hits">1</span>
+            
+
+            
+
             <code class="ruby">      &#39;You havent done anything girl, theres nothing to see here.&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="31">
+          <li class="never" data-hits="" data-linenumber="33">
             
             
 
@@ -510,7 +532,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="32">
+          <li class="covered" data-hits="2" data-linenumber="34">
             <span class="hits">2</span>
             
 
@@ -521,7 +543,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="2" data-linenumber="33">
+          <li class="covered" data-hits="2" data-linenumber="35">
             <span class="hits">2</span>
             
 
@@ -532,7 +554,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="34">
+          <li class="never" data-hits="" data-linenumber="36">
             
             
 
@@ -543,7 +565,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="35">
+          <li class="never" data-hits="" data-linenumber="37">
             
             
 
@@ -554,7 +576,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="36">
+          <li class="never" data-hits="" data-linenumber="38">
             
             
 
@@ -565,7 +587,7 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="37">
+          <li class="covered" data-hits="1" data-linenumber="39">
             <span class="hits">1</span>
             
 
@@ -576,18 +598,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="9" data-linenumber="38">
+          <li class="covered" data-hits="9" data-linenumber="40">
             <span class="hits">9</span>
             
 
             
 
-            <code class="ruby">    Date.today</code>
+            <code class="ruby">    Date.today.strftime(&quot;%d/%m/%Y&quot;)</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="39">
+          <li class="never" data-hits="" data-linenumber="41">
             
             
 
@@ -598,7 +620,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="40">
+          <li class="never" data-hits="" data-linenumber="42">
             
             
 
@@ -609,7 +631,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="41">
+          <li class="never" data-hits="" data-linenumber="43">
             
             
 
@@ -1117,7 +1139,7 @@
 
             
 
-            <code class="ruby">  let(:date) { Date.new(1995, 10, 29) }</code>
+            <code class="ruby">  let(:date) { Date.new(1995, 10, 29)}</code>
           </li>
         </div>
       
@@ -1128,7 +1150,7 @@
 
             
 
-            <code class="ruby">  let(:transaction) { &quot;#{date} || 100.00 ||  || 100.00\n&quot; }</code>
+            <code class="ruby">  let(:transaction) { &quot;29/10/1995 || 100.00 ||  || 100.00\n&quot; }</code>
           </li>
         </div>
       
@@ -1139,7 +1161,7 @@
 
             
 
-            <code class="ruby">  let(:deposit) { { amount: 100, balance_at_time: 100, date: date } }</code>
+            <code class="ruby">  let(:deposit) { { amount: 100, balance_at_time: 100, date: &quot;29/10/1995&quot; } }</code>
           </li>
         </div>
       
@@ -1150,7 +1172,7 @@
 
             
 
-            <code class="ruby">  let(:withdraw) { { amount: -100, balance_at_time: 0, date: date } }</code>
+            <code class="ruby">  let(:withdraw) { { amount: -100, balance_at_time: 0, date: &quot;29/10/1995&quot; } }</code>
           </li>
         </div>
       
@@ -1161,7 +1183,7 @@
 
             
 
-            <code class="ruby">  let(:transaction2) { &quot;#{date} ||  || 50.00 || 50.00\n#{date} || 100.00 ||  || 100.00\n&quot; }</code>
+            <code class="ruby">  let(:transaction2) { &quot;29/10/1995 ||  || 50.00 || 50.00\n29/10/1995 || 100.00 ||  || 100.00\n&quot; }</code>
           </li>
         </div>
       

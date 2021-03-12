@@ -4,11 +4,11 @@ require 'bank_account'
 describe 'Bank Account' do
   let(:account) { BankAccount.new }
   let(:statement_header) { "date || credit || debit || balance\n" }
-  let(:date) { Date.new(1995, 10, 29) }
-  let(:transaction) { "#{date} || 100.00 ||  || 100.00\n" }
-  let(:deposit) { { amount: 100, balance_at_time: 100, date: date } }
-  let(:withdraw) { { amount: -100, balance_at_time: 0, date: date } }
-  let(:transaction2) { "#{date} ||  || 50.00 || 50.00\n#{date} || 100.00 ||  || 100.00\n" }
+  let(:date) { Date.new(1995, 10, 29)}
+  let(:transaction) { "29/10/1995 || 100.00 ||  || 100.00\n" }
+  let(:deposit) { { amount: 100, balance_at_time: 100, date: "29/10/1995" } }
+  let(:withdraw) { { amount: -100, balance_at_time: 0, date: "29/10/1995" } }
+  let(:transaction2) { "29/10/1995 ||  || 50.00 || 50.00\n29/10/1995 || 100.00 ||  || 100.00\n" }
 
 
   describe '#print_statament' do
