@@ -60,9 +60,11 @@ I want to be able to view the date and amount of a deposit on my bank statement
 
 # Next Steps
 * Class Extractions - my next step would be to extract bank_account.rb in to the following classes:
+COMPLETED
     - statement.rb: This class would handle the rendering of the bank transactions into a printable statement. It would require the instance variable transactions_history passed as an argument to be rendered
-    - deposit.rb: This class would handle the deposit transaction method.
-    - withdraw.rb: This class would handle the withdraw transaction method.
+TO DO
+    - transactions.rb: This class would handle creating a new deposit or withdraw transaction.
+
 
 # Edge Cases
 ACCOUNTED FOR:
