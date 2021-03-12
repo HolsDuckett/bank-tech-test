@@ -1,13 +1,13 @@
 # frozen_string_literal: true
+require_relative 'statement'
 
 class BankAccount
   attr_reader :balance, :transaction_history
 
-  HEADER = "date || credit || debit || balance\n"
-
-  def initialize
+  def initialize(statement = Statement)
     @balance = 0
     @transaction_history = []
+    @statement = statement
   end
 
   def deposit(amount, date = Time.now.strftime('%d/%m/%Y'))
@@ -25,35 +25,12 @@ class BankAccount
   end
 
   def print_statement
-    if @transaction_history.length.zero?
+    if transaction_history.length.zero?
       'You havent done anything girl, theres nothing to see here.'
     else
-      puts HEADER
-      puts transactions_to_array_of_strings.join("\n")
+      new_statement = @statement.new
+      new_statement.print(@transaction_history)
     end
   end
 
-  private # ---------------------------------------------------
-
-  def transactions_to_array_of_strings
-    transaction_list = []
-
-    @transaction_history.reverse.each do |transaction|
-      transaction_list << render_transactions(transaction)
-    end
-
-    transaction_list
-  end
-
-  def render_transactions(transaction)
-    date = transaction[:date]
-    amount = transaction[:amount]
-    balance_at_time = transaction[:balance_at_time]
-
-    if amount.positive?
-      "#{date} || #{'%.2f'% amount} ||  || #{'%.2f' % balance_at_time}"
-    else
-      "#{date} ||  || #{'%.2f' % -amount} || #{'%.2f' % balance_at_time}"
-    end
-  end
 end
