@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 require_relative 'statement'
+require 'time'
 
 class BankAccount
   attr_reader :balance, :transaction_history
@@ -10,12 +11,12 @@ class BankAccount
     @statement = statement
   end
 
-  def deposit(amount, date = Time.now.strftime('%d/%m/%Y'))
+  def deposit(amount)
     @balance += amount
     @transaction_history << { date: date, amount: amount, balance_at_time: @balance }
   end
 
-  def withdraw(amount, date = Time.now.strftime('%d/%m/%Y'))
+  def withdraw(amount)
     if @balance < amount
       'Insufficient funds - you gotta grind girl.'
     else
@@ -31,6 +32,10 @@ class BankAccount
       new_statement = @statement.new
       new_statement.print(@transaction_history)
     end
+  end
+
+  def date
+    Date.today
   end
 
 end

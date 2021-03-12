@@ -4,20 +4,22 @@ require 'bank_account'
 describe 'Bank Account' do
   let(:account) { BankAccount.new }
   let(:statement_header) { "date || credit || debit || balance\n" }
-  let(:date) { Time.now.strftime('%d/%m/%Y') }
+  let(:date) { Date.new(1995, 10, 29) }
   let(:transaction) { "#{date} || 100.00 ||  || 100.00\n" }
-  let(:deposit) { { amount: 100, balance_at_time: 100, date: date.to_s } }
-  let(:withdraw) { { amount: -100, balance_at_time: 0, date: date.to_s } }
+  let(:deposit) { { amount: 100, balance_at_time: 100, date: date } }
+  let(:withdraw) { { amount: -100, balance_at_time: 0, date: date } }
   let(:transaction2) { "#{date} ||  || 50.00 || 50.00\n#{date} || 100.00 ||  || 100.00\n" }
 
 
   describe '#print_statament' do
     it 'should print out a customers transaction history including date, amount and balance at the time' do
+      allow(Date).to receive(:today).and_return(date)
       account.deposit(100)
       expect { account.print_statement }.to output(statement_header + transaction).to_stdout
     end
 
     it 'should print out a customers transaction history including date, amount and balance at the time with both a deposit and withdrawl' do
+      allow(Date).to receive(:today).and_return(date)
       account.deposit(100)
       account.withdraw(50)
       expect { account.print_statement }.to output(statement_header + transaction2).to_stdout
@@ -34,6 +36,7 @@ describe 'Bank Account' do
     end
 
     it 'should add the deposit transaction to the transaction history' do
+      allow(Date).to receive(:today).and_return(date)
       account.deposit(100)
       expect(account.transaction_history[0]).to eq(deposit)
     end
@@ -46,6 +49,7 @@ describe 'Bank Account' do
     end
 
     it 'should add the withdraw transaction to the transaction history' do
+      allow(Date).to receive(:today).and_return(date)
       account.deposit(100)
       account.withdraw(100)
       expect(account.transaction_history[1]).to match(withdraw)
